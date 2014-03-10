@@ -20,59 +20,63 @@ var MarkdownDeepEditorUI=new function(){
     // private:.m_prefixLen
     
     this.HelpHtmlWritten=false;
-
-    this.HelpHtml = function(help_location) {
+    
+    this.HelpHtml=function(help_location)
+    {
         // Start with nothing
-        var str = '';
-        str += '<div class="mdd_modal" id="mdd_syntax_container" style="display:none">\n';
-        str += '<div class="mdd_modal_frame">\n';
-        str += '<div class="mdd_modal_button">\n';
-        str += '<a href="' + help_location + '" id="mdd_help_location" style="display:none"></a>\n';
-        str += '<a href="#" id="mdd_close_help">Close</a>\n';
-        str += '</div>\n';
-        str += '<div class="mdd_modal_content">\n';
-        str += '<div class="mdd_syntax" id="mdd_syntax">\n';
-        str += '<div class="mdd_ajax_loader"></div>\n';
-        str += '</div>\n';
-        str += '</div>\n';
-        str += '</div>\n';
-        str += '</div>\n';
+        var str='';
+        str+='<div class="mdd_modal" id="mdd_syntax_container" style="display:none">\n';
+        str+='<div class="mdd_modal_frame">\n';
+        str+='<div class="mdd_modal_button">\n';
+        str+='<a href="' + help_location + '" id="mdd_help_location" style="display:none"></a>\n';
+        str+='<a href="#" id="mdd_close_help">Close</a>\n';
+        str+='</div>\n';
+        str+='<div class="mdd_modal_content">\n';
+        str+='<div class="mdd_syntax" id="mdd_syntax">\n';
+        str+='<div class="mdd_ajax_loader"></div>\n';
+        str+='</div>\n';
+        str+='</div>\n';
+        str+='</div>\n';
+        str+='</div>\n';
         return str;
-    };
+    }
 
     // Helper function that returns the HTML content of the toolbar
-    this.ToolbarHtml = function() {
+    this.ToolbarHtml=function()
+    {
         // Start with nothing
-        var str = '';
-
+        var str='';
+                
         // The toolbar div
-        str += '<div class="wysiwyg-toolbar btn-toolbar wysiwyg-style1">\n';
-        str += '<div class="mdd_links btn-group pull-right">\n';
-        str += '<a href="#" class="mdd_help badge badge-primary" tabindex=-1>How to Format</a>\n';
-        str += '</div><div class="btn-group">\n';
-        str += '<a href="#" class="mdd_button btn btn-sm" id="mdd_undo" title="Undo (Ctrl+Z)" data-rel="tooltip" tabindex=-1><i class="icon-undo"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm" id="mdd_redo" title="Redo (Ctrl+Y)" data-rel="tooltip" tabindex=-1><i class="icon-repeat"></i></a>\n';
-        str += '</div><div class="btn-group">\n';
-        str += '<a href="#" class="mdd_button btn btn-sm" id="mdd_heading" title="Change Heading Style (Ctrl+H, or Ctrl+0 to Ctrl+6)" data-rel="tooltip" tabindex=-1><i class="icon-text-height"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm" id="mdd_code" title="Preformatted Code (Ctrl+K or Tab/Shift+Tab on multiline selection)" data-rel="tooltip" tabindex=-1><i class="icon-code"></i></a>\n';
-        str += '</div><div class="btn-group">\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-info" id="mdd_bold" title="Bold (Ctrl+B)" data-rel="tooltip" tabindex=-1><i class="icon-bold"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-info" id="mdd_italic" title="Italic (Ctrl+I)" data-rel="tooltip" tabindex=-1><i class="icon-italic"></i></a>\n';
-        str += '</div><div class="btn-group">\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-success" id="mdd_ullist" title="Bullets (Ctrl+U)" data-rel="tooltip" tabindex=-1><i class="icon-list-ul"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-success" id="mdd_ollist" title="Numbering (Ctrl+O)" data-rel="tooltip" tabindex=-1><i class="icon-list-ol"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-purple" id="mdd_outdent" title="Unquote (Ctrl+W)" data-rel="tooltip" tabindex=-1><i class="icon-indent-right"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-purple" id="mdd_indent" title="Quote (Ctrl+Q)" data-rel="tooltip" tabindex=-1><i class="icon-indent-left"></i></a>\n';
-        str += '</div><div class="btn-group">\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-inverse" id="mdd_link" title="Insert Hyperlink (Ctrl+L)" data-rel="tooltip" tabindex=-1><i class="icon-link"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-inverse" id="mdd_img" title="Insert Image (Ctrl+G)" data-rel="tooltip" tabindex=-1><i class="icon-picture"></i></a>\n';
-        str += '<a href="#" class="mdd_button btn btn-sm btn-gray" id="mdd_hr" title="Insert Horizontal Rule (Ctrl+R)" data-rel="tooltip" tabindex=-1><i class="icon-minus"></i></a>\n';
-        str += '</div></div>\n';
+        str+='<div class="mdd_links">\n';
+        str+='<a href="#" class="mdd_help" tabindex=-1>How to Format</a>\n';
+        str+='</div>\n';
+        str+='<ul>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_undo" title="Undo (Ctrl+Z)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_redo" title="Redo (Ctrl+Y)" tabindex=-1></a></li>\n';
+        str+='<li><span class="mdd_sep"></span></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_heading" title="Change Heading Style (Ctrl+H, or Ctrl+0 to Ctrl+6)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_code" title="Preformatted Code (Ctrl+K or Tab/Shift+Tab on multiline selection)" tabindex=-1></a></li>\n';
+        str+='<li><span class="mdd_sep"></span></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_bold" title="Bold (Ctrl+B)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_italic" title="Italic (Ctrl+I)" tabindex=-1></a></li>\n';
+        str+='<li><span class="mdd_sep"></span></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_ullist" title="Bullets (Ctrl+U)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_ollist" title="Numbering (Ctrl+O)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_outdent" title="Unquote (Ctrl+W)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_indent" title="Quote (Ctrl+Q)" tabindex=-1></a></li>\n';
+        str+='<li><span class="mdd_sep"></span></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_link" title="Insert Hyperlink (Ctrl+L)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_img" title="Insert Image (Ctrl+G)" tabindex=-1></a></li>\n';
+        str+='<li><a href="#" class="mdd_button" id="mdd_hr" title="Insert Horizontal Rule (Ctrl+R)" tabindex=-1></a></li>\n';
+        str+='</ul>\n';
+        str+='<div style="clear:both"></div>\n';
         return str;
-    };
+    }
     
     // Handle click on resize bar
-    this.onResizerMouseDown = function(e) {
+    this.onResizerMouseDown=function(e)
+    {
         // Initialize state
         var srcElement = (window.event) ? e.srcElement : e.target,
             textarea = $(srcElement).closest('.mdd_resizer_wrap').prev('.mdd_editor_wrap').children("textarea")[0],
@@ -82,90 +86,94 @@ var MarkdownDeepEditorUI=new function(){
         // Bind to required events
         $(document).bind("mousemove.mdd", DoDrag);
         $(document).bind("mouseup.mdd", EndDrag);
-
+        
         // Suppress default
         return false;
 
         // End the drag operation        
-
-        function EndDrag(e) {
+        function EndDrag(e)
+        {
             $(document).unbind("mousemove.mdd");
             $(document).unbind("mouseup.mdd");
             return false;
         }
-
+        
         // Handle drag operation
-
-        function DoDrag(e) {
-            var newHeight = iOriginalHeight + e.clientY - iOriginalMouse;
-            if (newHeight < 50)
-                newHeight = 50;
+        function DoDrag(e)
+        {
+            var newHeight=iOriginalHeight + e.clientY - iOriginalMouse;
+            if (newHeight<50)
+                newHeight=50;
             $(textarea).height(newHeight);
             return false;
         }
-
-    };
+        
+    }
     
 	// Used to store the scroll position of the help
 	var scrollPos=0;
 	var contentLoaded=false;
 
     // Show the popup modal help	
-    this.onShowHelpPopup = function() {
+    this.onShowHelpPopup=function()
+    {
         // Show the help 
         $("#mdd_syntax_container").fadeIn("fast");
-
+	    
         // Restore the scroll position
         $(".modal_content").scrollTop(scrollPos);
-
+	    
         // Hook escape key to close
-        $(document).bind("keydown.mdd", function(e) {
-            if (e.keyCode == 27) {
+        $(document).bind("keydown.mdd", function(e){
+    	    if (e.keyCode==27)
+            {
                 MarkdownDeepEditorUI.onCloseHelpPopup();
                 return false;
             }
         });
-
+        
         // Load content	    
-        if (!contentLoaded) {
-            contentLoaded = true;
-
-            var help_location = $("#mdd_help_location").attr("href");
+        if (!contentLoaded)
+        {
+            contentLoaded=true;
+            
+            var help_location=$("#mdd_help_location").attr("href");
             if (!help_location)
-                help_location = "mdd_help.htm";
-
+                help_location="mdd_help.htm";
+                
             $("#mdd_syntax").load(help_location);
         }
-
+        
         return false;
-    };
+    }
 
     // Close the popup help
-    this.onCloseHelpPopup = function() {
-        // Save scroll position
-        scrollPos = $(".modal_content").scrollTop();
-
-        // Hide help
-        $("#mdd_syntax_container").fadeOut("fast");
-
-        // Unhook escape key
-        $(document).unbind("keydown.mdd");
-        $(document).unbind("scroll.mdd");
-
-        return false;
-    };
+	this.onCloseHelpPopup=function()
+	{
+	    // Save scroll position
+	    scrollPos=$(".modal_content").scrollTop();
+	    
+	    // Hide help
+	    $("#mdd_syntax_container").fadeOut("fast");
+	    
+	    // Unhook escape key
+	    $(document).unbind("keydown.mdd");
+	    $(document).unbind("scroll.mdd"); 
+	    
+	    return false;
+	}
 	
 	// Toolbar click handler
-    this.onToolbarButton = function(e) {
-        // Find the editor, grab the MarkdownEditor.Editor class from it's data
-        var editor = $(e.target).closest("div.mdd_toolbar_wrap").next('.mdd_editor_wrap').children("textarea").data("mdd");
-
-        // Invoke the command
-        editor.InvokeCommand($(this).attr("id").substr(4));
-
+	this.onToolbarButton=function(e) {
+	    // Find the editor, grab the MarkdownEditor.Editor class from it's data
+	    var editor = $(e.target).closest("div.mdd_toolbar_wrap").next('.mdd_editor_wrap').children("textarea").data("mdd");
+	    
+	    // Invoke the command
+        editor.InvokeCommand($(e.target).attr("id").substr(4));
+        
         // Supress default
         return false;
-    };
+	}
 }();
 
 /*

@@ -13,3 +13,5 @@ Debug
 *.zip
 *.nupkg
 /packages/*
+/_ReSharper*/*
+/_UpgradeReport*/*

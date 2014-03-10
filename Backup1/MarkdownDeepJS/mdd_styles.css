@@ -14,8 +14,8 @@ div.mdd_modal
 }
 div.mdd_modal_frame
 {
-	width:750px;
-	height:600px;
+	width:650px;
+	height:400px;
 	background-color:White;
 	z-index:2000;
 	margin:0 auto;
@@ -96,12 +96,14 @@ div.mdd_syntax pre
 	background-color:#f8f8f8;
 }
 
+div.mdd_toolbar_wrap 
+{
+    width:100%;
+}
 div.mdd_toolbar
 {
-	float:left;
 	padding:5px;
-	width:100%;
-    font-size: 14px;
+	height:20px;
 }
 
 div.mdd_toolbar ul
@@ -120,20 +122,20 @@ div.mdd_toolbar li
 
 div.mdd_toolbar a.mdd_button
 {
-	/*background-image:url(mdd_toolbar.png);
+	background-image:url(mdd_toolbar.png);
 	width:20px;
 	height:20px;
-	display:block;*/
+	display:block;
 }
 
-/*span.mdd_sep
+span.mdd_sep
 {
 	width:5px;
 	height:20px;
 	display:block;
 	border-left:solid 1px #808080;
 	margin-left:5px;
-}*/
+}
 
 #mdd_bold			{ background-position:-1px -1px;}
 #mdd_bold:hover		{ background-position:-1px -23px; }
@@ -162,36 +164,43 @@ div.mdd_toolbar a.mdd_button
 #mdd_redo			{ background-position:-265px -1px; }
 #mdd_redo:hover		{ background-position:-265px -23px; }
 
-/*div.mdd_links
+div.mdd_links
 {
 	float:right;
-}*/
+}
 
-/*div.mdd_links a
+div.mdd_links a
 {
 	text-decoration:none;
 	color:#404040;
 	font-size:smaller;
-}*/
-/*div.mdd_links a:hover
+}
+div.mdd_links a:hover
 {
 	color:black;
-}*/
+}
 
+div.mdd_editor_wrap
+{
+    padding-right: 8px;
+}
 textarea.mdd_editor
 {
 	width:100%;
 	resize:none;
-	margin:0;
+	margin:0;padding: 3px;
 }
 
+div.mdd_resizer_wrap
+{
+	width:100%;
+}
 div.mdd_resizer
 {
 	background:#f8f8f8; 
 	background-image:url("mdd_gripper.png");
 	background-position:center center;
 	background-repeat:no-repeat;
-	width:100%;
 	padding-left:2px;
 	padding-right:2px;
 	height:9px;
